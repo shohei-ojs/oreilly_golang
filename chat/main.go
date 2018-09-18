@@ -12,6 +12,9 @@ func main() {
 				<head>
 					<title>チャット</title>
 				</head>
+				<body>
+					チャットしましょう！
+				</body>
 			</html>
 			`))
 	})
