@@ -1,8 +1,25 @@
 <html>
   <head>
     <title>チャット</title>
+    <style>
+      input { display: block; }
+      ul { list-style: none;}
+    </style>
   </head>
   <body>
-    チャットしましょう！ (テンプレートより)
+    <ul id="message"></ul>
+    Websocketを使ったチャットアプリ
+    <form id="chatbox">
+      <textarea></textarea>
+      <input type="submit" value="送信"/>
+    </form>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+    </script>
+    <script>
+    $(function(){
+      var socket = null;
+      var msgBox = $("#chatbox textarea");  
+    }
+    </script>
   </body>
 </html>
