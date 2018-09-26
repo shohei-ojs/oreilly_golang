@@ -26,7 +26,7 @@ func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func main() {
 	r := newRoom()
 	http.Handle("/", &templateHandler{filename: "chat.html"})
-	http:HandLE("/room", r)
+	http.Handle("/room", r)
 	// チャットを開始
 	go r.run()
 	// Webサーバーを開始

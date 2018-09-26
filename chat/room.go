@@ -2,6 +2,8 @@ package main
 
 import (
 	"log"
+	"net/http"
+	"github.com/gorilla/websocket"
 )
 
 type room struct {
@@ -20,7 +22,7 @@ func newRoom() *room {
 		forward: make(chan []byte),
 		join:    make(chan *client),
 		leave:   make(chan *client),
-		clients: make(map[*client]bool)
+		clients: make(map[*client]bool),
 	}
 }
 
@@ -57,7 +59,7 @@ const (
 var upgrader = &websocket.Upgrader{ReadBufferSize:
 		socketBufferSize, WriteBufferSize: socketBufferSize}
 
-func (r *room) ServeHTTP(w http.ResponseWrite, req *http.Request) {
+func (r *room) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	socket, err := upgrader.Upgrade(w, req, nil)
 	if err != nil {
 		log.Fatal("ServeHTTP:", err)
