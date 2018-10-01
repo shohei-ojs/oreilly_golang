@@ -7,7 +7,7 @@
     </style>
   </head>
   <body>
-    <ul id="message"></ul>
+    <ul id="messages"></ul>
     Websocketを使ったチャットアプリ
     <form id="chatbox">
       <textarea></textarea>
@@ -33,7 +33,7 @@
         alert("エラー : WebSocketに対応していないブラウザです。")
       } else {
         socket = new WebSocket("ws://localhost:8080/room");
-        socket.onclose = function(e) {
+        socket.onclose = function() {
           alert("接続が終了しました。");
         }
         socket.onmessage = function(e) {
